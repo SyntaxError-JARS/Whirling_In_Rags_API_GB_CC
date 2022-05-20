@@ -1,7 +1,7 @@
 # Project 1: Whirling In Rags Resturant Application
 
 # Desctiption
-The purpose of this application is to delever a seemless resurtant experience to the customers who use this application online or though the Cafe/Resuraunt.  This repository is holding all of the files used for the Back End/API.
+The purpose of this application is to deliver a seamless restaurant experience to the customers who use this application online or though the Cafe/Resuraunt.  This repository is holding all of the files used for the Back End/API.
 
 # User Stories
 
