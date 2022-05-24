@@ -4,7 +4,9 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 public interface Crudable <T>{
-   /* T Create(T newObject);
+
+
+    T Create(T newObject);
 
     ArrayList<T> findAll() throws IOException;
 
@@ -13,9 +15,5 @@ public interface Crudable <T>{
     public boolean update(T updatedObj);
 
     public boolean delete(String id);
-}
-
-
-    */
 
 }
