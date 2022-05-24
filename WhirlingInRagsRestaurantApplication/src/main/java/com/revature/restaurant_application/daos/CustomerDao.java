@@ -43,7 +43,7 @@ public class CustomerDao implements Crudable<CustomerData>{
     }
 
     @Override
-    public CustomerData findByID(String id) {
+    public CustomerData findByID(String username) {
         try{
             Session session = HibernateUtil.getSession();
             Transaction transaction = session.beginTransaction();
@@ -56,16 +56,38 @@ public class CustomerDao implements Crudable<CustomerData>{
         }finally {
             HibernateUtil.closeSession();
         }
-        return null;
     }
 
     @Override
-    public boolean update(CustomerData customerData) {
-        return false;
+    public boolean update(CustomerData updatedCustomer) {
+
+        try{
+            Session session = HibernateUtil.getSession();
+            Transaction transaction = session.beginTransaction();
+            session.merge(updatedCustomer);
+            transaction.commit();
+            return true;
+        }catch (HibernateException | IOException e){
+            e.printStackTrace();
+            return false;
+        }finally {
+            HibernateUtil.closeSession();
+        }
     }
 
     @Override
-    public boolean delete(String id) {
-        return false;
+    public boolean delete(String username) {
+        try{
+            Session session = HibernateUtil.getSession();
+            Transaction transaction = session.beginTransaction();
+            session.remove(username);
+            transaction.commit();
+            return true;
+        }catch (HibernateException | IOException e){
+            e.printStackTrace();
+            return false;
+        }finally {
+            HibernateUtil.closeSession();
+        }
     }
 }
