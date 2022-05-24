@@ -30,9 +30,9 @@ public class CustomerData {
         this.isAdmin = isAdmin;
     }
 
-    public CustomerData(String password){
-        this.password = password;
-    }
+    //public CustomerData(String password){
+        //this.password = password;
+   // }
 
     public CustomerData() {
 
