@@ -1,6 +1,6 @@
 package com.revature.restaurant_application.daos;
+import com.revature.restaurant_application.util.HibernateUtil;
 
-import com.revature.restaurant_application.models.CreditCardData;
 import com.revature.restaurant_application.models.MenuData;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
@@ -9,10 +9,10 @@ import org.hibernate.Transaction;
 import java.io.IOException;
 import java.util.ArrayList;
 
-public class MenuDao  {
+public class MenuDao implements Crudable<MenuData> {
 
-   /* @Override
-    public MenuData create(MenuData newMenuData) {
+    @Override
+    public MenuData Create(MenuData newMenuData) {
 
 
         try {
@@ -48,14 +48,15 @@ public class MenuDao  {
 
 
         }
-
+    }
         @Override
-        public MenuData findById (String itemName){
+        public MenuData findByID(String itemName){
 
             try {
                     Session session = HibernateUtil.getSession();
                     Transaction transaction = session.beginTransaction();
-                    MenuData menu = session.get(MenuData.class, id);
+                    MenuData menu = session.get(MenuData.class, itemName);
+                    transaction.commit();
                     return menu;
                 }catch (HibernateException | IOException e) {
                     e.printStackTrace();
@@ -101,9 +102,9 @@ public class MenuDao  {
                 }
             }
 
-        }
+
 
     }
-    */
-    }
+
+    
 

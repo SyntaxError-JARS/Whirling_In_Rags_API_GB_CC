@@ -1,7 +1,7 @@
 package com.revature.restaurant_application.daos;
 
 import com.revature.restaurant_application.models.CreditCardData;
-
+import com.revature.restaurant_application.util.HibernateUtil;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
@@ -9,9 +9,10 @@ import org.hibernate.Transaction;
 import java.io.IOException;
 import java.util.ArrayList;
 
-public class CreditCardDao  {
 
-/*@Override
+public class CreditCardDao implements Crudable<CreditCardData>{
+
+@Override
         public CreditCardData Create(CreditCardData newCreditCardData) {
 
 
@@ -37,22 +38,22 @@ public class CreditCardDao  {
         public ArrayList findAll() throws IOException {
 
 
-            try {
-                Session session = HibernateUtil.getSession();
-                Transaction transaction = session.beginTransaction();
-                ArrayList<CreditCardData> creditCard = (ArrayList<CreditCardData>) session.createQuery("FROM CreditCardData").list();
-                return creditCard;
-            } catch (HibernateException | IOException e) {
-                e.printStackTrace();
-                return null;
-            } finally {
-                HibernateUtil.closeSession();
+        try {
+            Session session = HibernateUtil.getSession();
+            Transaction transaction = session.beginTransaction();
+            ArrayList<CreditCardData> creditCard = (ArrayList<CreditCardData>) session.createQuery("FROM CreditCardData").list();
+            return creditCard;
+        } catch (HibernateException | IOException e) {
+            e.printStackTrace();
+            return null;
+        } finally {
+            HibernateUtil.closeSession();
 
 
-            }
+        }
+    }
         @Override
-        public CreditCardData findById(String username){
-
+        public CreditCardData findByID(String username){
                 try {
                     Session session = HibernateUtil.getSession();
                     Transaction transaction = session.beginTransaction();
@@ -67,6 +68,7 @@ public class CreditCardDao  {
 
                 }
             }
+
 
 
                 @Override
@@ -102,22 +104,10 @@ public class CreditCardDao  {
                     }
                 }
 
-            }
 
-    @Override
-    public CreditCardData findByID(String id) {
-        return null;
-    }
 
-    @Override
-    public boolean update(CreditCardData updatedObj) {
-        return false;
-    }
 
-    @Override
-    public boolean delete(String id) {
-        return false;
-    }
-   */
+
+
 }
 
