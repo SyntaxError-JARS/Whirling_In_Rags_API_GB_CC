@@ -39,6 +39,11 @@ public class OrderServices {
         return orders;
     }
 
+    public OrderData readByID(String username){
+        OrderData order = orderDao.findByID(username);
+        return order;
+    }
+
     public OrderData update(OrderData updatedOrder){
         if(!orderDao.update(updatedOrder)){
             return null;
