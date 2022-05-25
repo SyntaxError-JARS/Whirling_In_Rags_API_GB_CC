@@ -50,12 +50,12 @@ public class MenuDao implements Crudable<MenuData> {
         }
     }
         @Override
-        public MenuData findByID(String itemName){
+        public MenuData findByID(String menuItem){
 
             try {
                     Session session = HibernateUtil.getSession();
                     Transaction transaction = session.beginTransaction();
-                    MenuData menu = session.get(MenuData.class, itemName);
+                    MenuData menu = session.get(MenuData.class, menuItem);
                     transaction.commit();
                     return menu;
                 }catch (HibernateException | IOException e) {
@@ -87,11 +87,11 @@ public class MenuDao implements Crudable<MenuData> {
             }
 
             @Override
-            public boolean delete (String itemName){
+            public boolean delete (String menuItem){
                 try {
                     Session session = HibernateUtil.getSession();
                     Transaction transaction = session.beginTransaction();
-                    session.remove(itemName);
+                    session.remove(menuItem);
                     transaction.commit();
                     return true;
                 } catch (HibernateException | IOException e) {
@@ -106,5 +106,5 @@ public class MenuDao implements Crudable<MenuData> {
 
     }
 
-    
+
 
