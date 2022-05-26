@@ -9,7 +9,9 @@ import com.revature.restaurant_application.services.CreditCardServices;
 import com.revature.restaurant_application.services.CustomerServices;
 import com.revature.restaurant_application.services.MenuServices;
 import com.revature.restaurant_application.services.OrderServices;
+import com.revature.restaurant_application.web.servlets.CreditCardServlet;
 import com.revature.restaurant_application.web.servlets.CustomerServlet;
+import com.revature.restaurant_application.web.servlets.MenuServlet;
 import com.revature.restaurant_application.web.servlets.OrderServlet;
 
 import javax.servlet.ServletContext;
@@ -30,22 +32,22 @@ public class ContextLoaderListener implements ServletContextListener {
 
         CustomerServices customerServices = new CustomerServices(customerDao);
         OrderServices orderServices = new OrderServices(orderDao);
-        //MenuServices menuServices = new MenuServices(menuDao);
-        //CreditCardServices creditCardServices = new CreditCardServices(creditCardDao);
+        MenuServices menuServices = new MenuServices(menuDao);
+        CreditCardServices creditCardServices = new CreditCardServices(creditCardDao);
 
 
 
         CustomerServlet customerServlet = new CustomerServlet(customerServices, mapper);
         OrderServlet orderServlet = new OrderServlet(orderServices, mapper);
-        //CreditCardServlet creditCardServlet = new CreditCardServlet(creditCardService,mapper);
-        //MenuServlet menuServlet = new MenuServlet(menuServices, mapper);
+        CreditCardServlet creditCardServlet = new CreditCardServlet(creditCardServices,mapper);
+        MenuServlet menuServlet = new MenuServlet(menuServices, mapper);
 
 
         ServletContext context = sce.getServletContext();
         context.addServlet("CustomerServlet", customerServlet).addMapping("/customer/*");
         context.addServlet("OrderServlet", orderServlet).addMapping("/order/*");
-        //context.addServlet("CreditCardServlet", creditCardServlet).addMapping("/Credit/*");
-        //context.addServlet("MenuServlet", menuServlet).addMapping("/menu/*");
+        context.addServlet("CreditCardServlet", creditCardServlet).addMapping("/Credit/*");
+        context.addServlet("MenuServlet", menuServlet).addMapping("/menu/*");
 ;
 
 
