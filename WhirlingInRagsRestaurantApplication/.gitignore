@@ -1,6 +1,4 @@
 .idea/
 out/
 target/
-src/main/resources/*
-WhirlingInRagsRestaurantApplication/src/main/resources/hibernate.properties
-
+src/main/resources/hibernate.properties
