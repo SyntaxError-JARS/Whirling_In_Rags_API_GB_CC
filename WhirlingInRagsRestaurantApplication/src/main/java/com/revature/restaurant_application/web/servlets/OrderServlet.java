@@ -56,8 +56,8 @@ public class OrderServlet extends HttpServlet {
             return;
         }
 
-        ArrayList<OrderData> customerData = orderServices.readAllOrders();
-        String payload = mapper.writeValueAsString(customerData);
+        ArrayList<OrderData> orderData = orderServices.readAllOrders();
+        String payload = mapper.writeValueAsString(orderData);
         resp.getWriter().write(payload);
 
     }
