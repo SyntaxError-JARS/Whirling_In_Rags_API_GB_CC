@@ -1,6 +1,5 @@
 package com.revature.restaurant_application.daos;
 
-import com.revature.restaurant_application.models.CreditCardData;
 import com.revature.restaurant_application.models.CustomerData;
 import com.revature.restaurant_application.util.HibernateUtil;
 import org.hibernate.HibernateException;
