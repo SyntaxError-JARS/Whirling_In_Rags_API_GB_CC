@@ -7,14 +7,21 @@ import javax.persistence.*;
 @Table(name = "credit_card")
 public class CreditCardData {
 
+    @Id
+    @Column(name = "cc_number")
     private String cardNumber;
+    @Column(name = "cc_name")
     private String cardName;
 
     private int cvv;
 
+    @Column(name = "exp_date")
     private String expDate;
+    @Column(name = "zip")
     private  int zipCode;
+    @Column(name = "limit")
     private int creditLimit;
+    @Column(name = " customer_username")
     private String username;
 
 

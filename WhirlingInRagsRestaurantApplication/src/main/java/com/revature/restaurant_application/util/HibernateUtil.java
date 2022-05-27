@@ -30,17 +30,17 @@ public class HibernateUtil {
 //
 //            configuration.setProperties(props);
 
-            
+
             String url = System.getenv("SQLAZURECONNSTR_whirlinginragsDB");
-            String username = System.getenv("DBUSER");
+            String username = System.getenv("DBNAME");
             String password = System.getenv("DBPASS");
 
             configuration.setProperty("hibernate.connection.url", url);
-            configuration.setProperty("hibernate.connection.url", username);
-            configuration.setProperty("hibernate.connection.url", password);
+            configuration.setProperty("hibernate.connection.username", username);
+            configuration.setProperty("hibernate.connection.password", password);
             configuration.setProperty("hibernate.dialect", "org.hibernate.dialect.SQLServerDialect");
             configuration.setProperty("hibernate.connection.driver_class", "com.microsoft.sqlserver.jdbc.SQLServerDriver" );
-            configuration.setProperty("hibernate.connection.show_sql", "true" );
+            configuration.setProperty("hibernate.show_sql", "true" );
             configuration.setProperty("hibernate.hbm2ddl.auto", "update" );
 
 

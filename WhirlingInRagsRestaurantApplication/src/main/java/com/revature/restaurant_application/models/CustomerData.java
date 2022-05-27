@@ -9,6 +9,7 @@ import javax.persistence.*;
 @Table(name = "customer")
 public class CustomerData {
 
+    @Id
     private String username;
     private String fname;
     private String lname;
@@ -16,6 +17,7 @@ public class CustomerData {
     private String password;
 
     private int balance;
+    @Column(name = "is_admin")
     private boolean isAdmin;
 
 
