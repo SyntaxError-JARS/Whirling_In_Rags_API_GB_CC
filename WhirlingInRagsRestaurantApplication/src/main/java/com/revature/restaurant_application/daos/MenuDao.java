@@ -19,6 +19,7 @@ public class MenuDao implements Crudable<MenuData> {
             Session session = HibernateUtil.getSession();
             Transaction transaction = session.beginTransaction();
             session.save(newMenuData);
+            transaction.commit();
             return newMenuData;
 
 
@@ -39,6 +40,7 @@ public class MenuDao implements Crudable<MenuData> {
             Session session = HibernateUtil.getSession();
             Transaction transaction = session.beginTransaction();
             ArrayList<MenuData> menu = (ArrayList<MenuData>) session.createQuery("FROM MenuData").list();
+            transaction.commit();
             return menu;
         } catch (HibernateException | IOException e) {
             e.printStackTrace();

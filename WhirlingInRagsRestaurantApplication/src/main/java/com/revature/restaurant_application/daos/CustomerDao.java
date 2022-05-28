@@ -33,6 +33,7 @@ public class CustomerDao implements Crudable<CustomerData>{
             Session session = HibernateUtil.getSession();
             Transaction transaction = session.beginTransaction();
             ArrayList<CustomerData> customers = (ArrayList<CustomerData>) session.createQuery("FROM Customer").list();
+            transaction.commit();
             return customers;
         }catch (HibernateException | IOException e){
             e.printStackTrace();
