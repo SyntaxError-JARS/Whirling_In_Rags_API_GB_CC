@@ -17,6 +17,7 @@ public class CustomerDao implements Crudable<CustomerData>{
             Session session = HibernateUtil.getSession();
             Transaction transaction = session.beginTransaction();
             session.save(newCustomerData);
+            transaction.commit();
             return newCustomerData;
         }catch (HibernateException | IOException e){
             e.printStackTrace();

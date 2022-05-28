@@ -9,8 +9,12 @@ import javax.persistence.*;
 @Table(name = "customer")
 public class CustomerData {
 
+<<<<<<< HEAD
    @Id
    @Column(name="username")
+=======
+    @Id
+>>>>>>> cb3dc6719753870502237cc0b97e7f940aaae09e
     private String username;
     private String fname;
     private String lname;
@@ -18,6 +22,7 @@ public class CustomerData {
     private String password;
 
     private int balance;
+    @Column(name = "is_admin")
     private boolean isAdmin;
 
 

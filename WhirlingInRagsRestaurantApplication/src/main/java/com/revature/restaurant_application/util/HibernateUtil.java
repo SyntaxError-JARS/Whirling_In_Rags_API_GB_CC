@@ -22,9 +22,33 @@ public class HibernateUtil {
     public static Session getSession() throws IOException {
         if(sessionFactory == null){
             Configuration configuration = new Configuration();
+<<<<<<< HEAD
 
 
 
+=======
+            //Properties props = new Properties();
+
+            //
+//            ClassLoader loader = Thread.currentThread().getContextClassLoader();
+//            props.load(loader.getResourceAsStream("hibernate.properties"));
+//
+//            configuration.setProperties(props);
+
+
+            String url = System.getenv("SQLAZURECONNSTR_whirlinginragsDB");
+            String username = System.getenv("DBNAME");
+            String password = System.getenv("DBPASS");
+
+            configuration.setProperty("hibernate.connection.url", url);
+            configuration.setProperty("hibernate.connection.username", username);
+            configuration.setProperty("hibernate.connection.password", password);
+            configuration.setProperty("hibernate.dialect", "org.hibernate.dialect.SQLServerDialect");
+            configuration.setProperty("hibernate.connection.driver_class", "com.microsoft.sqlserver.jdbc.SQLServerDriver" );
+            configuration.setProperty("hibernate.show_sql", "true" );
+            configuration.setProperty("hibernate.hbm2ddl.auto", "update" );
+
+>>>>>>> cb3dc6719753870502237cc0b97e7f940aaae09e
 
             configuration.addAnnotatedClass(CreditCardData.class);
             configuration.addAnnotatedClass(CustomerData.class);

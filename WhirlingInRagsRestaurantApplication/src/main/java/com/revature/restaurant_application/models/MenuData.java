@@ -6,11 +6,17 @@ import javax.persistence.*;
 @Table(name = "menu")
 public class MenuData {
 
+<<<<<<< HEAD
     @Id
     @Column(name="item_name")
+=======
+        @Id
+        @Column(name = "item_name")
+>>>>>>> cb3dc6719753870502237cc0b97e7f940aaae09e
         private String menuItem;
         private int cost;
         private String protein;
+        @Column(name = "is_substitutable")
         private boolean isSubstitutable;
 
 
