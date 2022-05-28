@@ -8,7 +8,10 @@ import javax.persistence.*;
 public class CreditCardData {
 
     @Id
+
+
     @Column(name = "cc_number")
+
     private String cardNumber;
     @Column(name = "cc_name")
     private String cardName;

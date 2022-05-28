@@ -9,7 +9,9 @@ import javax.persistence.*;
 @Table(name = "customer")
 public class CustomerData {
 
-    @Id
+   @Id
+
+
     private String username;
     private String fname;
     private String lname;
