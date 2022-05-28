@@ -8,11 +8,10 @@ import javax.persistence.*;
 public class CreditCardData {
 
     @Id
-<<<<<<< HEAD
-    @Column(name="cc_number")
-=======
+
+
     @Column(name = "cc_number")
->>>>>>> cb3dc6719753870502237cc0b97e7f940aaae09e
+
     private String cardNumber;
     @Column(name = "cc_name")
     private String cardName;

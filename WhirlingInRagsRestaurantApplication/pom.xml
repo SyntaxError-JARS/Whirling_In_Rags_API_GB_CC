@@ -17,7 +17,7 @@
     </properties>
 
     <build>
-<<<<<<< HEAD
+
         <pluginManagement>
             <plugins>
                 <plugin>
@@ -35,8 +35,7 @@
         </pluginManagement>
 
 
-=======
->>>>>>> cb3dc6719753870502237cc0b97e7f940aaae09e
+
         <!-- https://docs.microsoft.com/en-us/azure/app-service/app-service-web-get-started-java -->
         <plugins>
             <plugin>
@@ -63,11 +62,7 @@
                     <!-- RESOURCEGROUP_NAME -->
                     <resourceGroup>WhirlingInRags</resourceGroup>
                     <!-- WEBAPP_NAME -->
-<<<<<<< HEAD
-                    <appName>WhirlingInRags</appName>
-=======
                     <appName>whrilinginrags</appName>
->>>>>>> cb3dc6719753870502237cc0b97e7f940aaae09e
                     <!-- REGION -->
                     <region>Central US</region>
                     <!-- Java Runtime Stack for App Service on Windows -->

@@ -22,11 +22,7 @@ public class HibernateUtil {
     public static Session getSession() throws IOException {
         if(sessionFactory == null){
             Configuration configuration = new Configuration();
-<<<<<<< HEAD
 
-
-
-=======
             //Properties props = new Properties();
 
             //
@@ -48,7 +44,7 @@ public class HibernateUtil {
             configuration.setProperty("hibernate.show_sql", "true" );
             configuration.setProperty("hibernate.hbm2ddl.auto", "update" );
 
->>>>>>> cb3dc6719753870502237cc0b97e7f940aaae09e
+
 
             configuration.addAnnotatedClass(CreditCardData.class);
             configuration.addAnnotatedClass(CustomerData.class);

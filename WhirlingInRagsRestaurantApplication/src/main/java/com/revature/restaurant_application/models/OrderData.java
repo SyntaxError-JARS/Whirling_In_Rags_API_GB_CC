@@ -11,11 +11,7 @@ import javax.persistence.*;
     public class OrderData {
 
         @Id
-<<<<<<< HEAD
-        @GeneratedValue(strategy=GenerationType.IDENTITY)
-        @Column(name="id")
-=======
->>>>>>> cb3dc6719753870502237cc0b97e7f940aaae09e
+
         private int id;
         @Column(name = "menu_item")
         private String menuItem;
