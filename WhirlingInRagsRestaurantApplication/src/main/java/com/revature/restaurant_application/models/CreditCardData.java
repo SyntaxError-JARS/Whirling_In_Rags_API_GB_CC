@@ -7,6 +7,8 @@ import javax.persistence.*;
 @Table(name = "credit_card")
 public class CreditCardData {
 
+    @Id
+    @Column(name="cc_number")
     private String cardNumber;
     private String cardName;
 

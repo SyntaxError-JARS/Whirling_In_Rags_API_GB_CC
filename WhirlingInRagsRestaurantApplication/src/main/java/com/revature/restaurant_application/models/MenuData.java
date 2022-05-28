@@ -6,6 +6,8 @@ import javax.persistence.*;
 @Table(name = "menu")
 public class MenuData {
 
+    @Id
+    @Column(name="item_name")
         private String menuItem;
         private int cost;
         private String protein;

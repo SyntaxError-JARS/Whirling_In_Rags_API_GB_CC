@@ -22,11 +22,9 @@ public class HibernateUtil {
     public static Session getSession() throws IOException {
         if(sessionFactory == null){
             Configuration configuration = new Configuration();
-            Properties props = new Properties();
-            ClassLoader loader = Thread.currentThread().getContextClassLoader();
-            props.load(loader.getResourceAsStream("hibernate.properties"));
 
-            configuration.setProperties(props);
+
+
 
             configuration.addAnnotatedClass(CreditCardData.class);
             configuration.addAnnotatedClass(CustomerData.class);

@@ -5,6 +5,7 @@ import com.revature.restaurant_application.util.HibernateUtil;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
+import org.hibernate.query.Query;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -88,5 +89,25 @@ public class CustomerDao implements Crudable<CustomerData>{
         }finally {
             HibernateUtil.closeSession();
         }
+    }
+
+    public CustomerData authenticateCustomer(String username, String password){
+
+        try {
+            Session session = HibernateUtil.getSession();
+            Transaction transaction = session.beginTransaction();
+            Query query = session.createQuery("from Customer where username= :username and password= :password");
+            query.setParameter("username", username);
+            query.setParameter("password", password);
+            CustomerData customerData = (CustomerData) query.uniqueResult();
+            transaction.commit();
+            return customerData;
+        } catch (HibernateException | IOException e) {
+            e.printStackTrace();
+            return null;
+        } finally {
+            HibernateUtil.closeSession();
+        }
+
     }
 }

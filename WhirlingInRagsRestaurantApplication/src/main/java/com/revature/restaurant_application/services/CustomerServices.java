@@ -1,6 +1,7 @@
 package com.revature.restaurant_application.services;
 
 import com.revature.restaurant_application.daos.CustomerDao;
+import com.revature.restaurant_application.exceptions.AuthenticationException;
 import com.revature.restaurant_application.exceptions.InvalidRequestException;
 import com.revature.restaurant_application.exceptions.ResourcePersistenceException;
 import com.revature.restaurant_application.models.CustomerData;
@@ -63,5 +64,21 @@ public class CustomerServices {
         return true;
 
     }
+    public CustomerData authenticateCustomer(String username, String password){
+
+        if(password == null || password.trim().equals("") || username == null || username.trim().equals("")) {
+            throw new InvalidRequestException("Either email or password is an invalid entry. Please try logging in again");
+        }
+
+        CustomerData authenticatedCustomer = customerDao.authenticateCustomer(username, password);
+
+        if (authenticatedCustomer == null){
+            throw new AuthenticationException("Unauthenticated user, information provided was not consistent with our database.");
+        }
+
+        return authenticatedCustomer;
+
+    }
+
 
 }

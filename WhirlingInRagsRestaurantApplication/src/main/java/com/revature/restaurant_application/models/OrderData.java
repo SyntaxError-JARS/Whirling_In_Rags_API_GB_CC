@@ -10,6 +10,9 @@ import javax.persistence.*;
     @Table(name = "order_menu")
     public class OrderData {
 
+        @Id
+        @GeneratedValue(strategy=GenerationType.IDENTITY)
+        @Column(name="id")
         private int id;
         private String menuItem;
         private String comment;
