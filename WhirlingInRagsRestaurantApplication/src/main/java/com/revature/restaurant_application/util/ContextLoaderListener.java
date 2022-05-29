@@ -9,10 +9,7 @@ import com.revature.restaurant_application.services.CreditCardServices;
 import com.revature.restaurant_application.services.CustomerServices;
 import com.revature.restaurant_application.services.MenuServices;
 import com.revature.restaurant_application.services.OrderServices;
-import com.revature.restaurant_application.web.servlets.CreditCardServlet;
-import com.revature.restaurant_application.web.servlets.CustomerServlet;
-import com.revature.restaurant_application.web.servlets.MenuServlet;
-import com.revature.restaurant_application.web.servlets.OrderServlet;
+import com.revature.restaurant_application.web.servlets.*;
 
 import javax.servlet.ServletContext;
 import javax.servlet.ServletContextEvent;
