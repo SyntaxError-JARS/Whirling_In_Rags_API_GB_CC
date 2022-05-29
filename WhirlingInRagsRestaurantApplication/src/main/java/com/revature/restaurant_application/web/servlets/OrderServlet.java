@@ -80,9 +80,6 @@ public class OrderServlet extends HttpServlet {
         }catch (InvalidRequestException | ResourcePersistenceException e) {
             resp.setStatus(404);
             resp.getWriter().write(e.getMessage());
-        }catch (Exception e) {
-            resp.setStatus(409);
-            resp.getWriter().write(e.getMessage());
         }
     }
 
@@ -104,9 +101,6 @@ public class OrderServlet extends HttpServlet {
         }catch (InvalidRequestException | ResourcePersistenceException e) {
             resp.setStatus(404);
             resp.getWriter().write(e.getMessage());
-        }catch (Exception e) {
-            resp.setStatus(409);
-            resp.getWriter().write(e.getMessage());
         }
     }
 
@@ -126,9 +120,6 @@ public class OrderServlet extends HttpServlet {
             return;
         }catch (InvalidRequestException | ResourcePersistenceException e) {
             resp.setStatus(404);
-            resp.getWriter().write(e.getMessage());
-        }catch (Exception e) {
-            resp.setStatus(409);
             resp.getWriter().write(e.getMessage());
         }
     }

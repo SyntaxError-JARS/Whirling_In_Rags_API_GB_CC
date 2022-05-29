@@ -32,7 +32,7 @@ public class OrderDao implements Crudable<OrderData>{
         try{
             Session session = HibernateUtil.getSession();
             Transaction transaction = session.beginTransaction();
-            ArrayList<OrderData> orders = (ArrayList<OrderData>) session.createQuery("FROM Order");
+            ArrayList<OrderData> orders = (ArrayList<OrderData>) session.createQuery("FROM OrderData").list();
             transaction.commit();
             return orders;
         }catch (HibernateException | IOException e){
