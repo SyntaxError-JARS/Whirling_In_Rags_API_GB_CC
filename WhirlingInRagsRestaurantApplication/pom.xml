@@ -4,11 +4,11 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-   <groupId>com.revature</groupId>
+
+    <groupId>com.revature</groupId>
     <artifactId>WhirlingInRagsRestaurantApplication</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>war</packaging>
-
 
 
     <properties>
@@ -138,13 +138,13 @@
             <version>42.3.3</version>
         </dependency>
 
+
         <!-- https://mvnrepository.com/artifact/com.microsoft.sqlserver/mssql-jdbc -->
         <dependency>
             <groupId>com.microsoft.sqlserver</groupId>
             <artifactId>mssql-jdbc</artifactId>
             <version>10.2.1.jre8</version>
         </dependency>
-
     </dependencies>
 
 </project>
