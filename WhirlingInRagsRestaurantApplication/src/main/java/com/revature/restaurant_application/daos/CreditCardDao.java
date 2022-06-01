@@ -92,11 +92,11 @@ public class CreditCardDao implements Crudable<CreditCardData>{
                 }
 
                 @Override
-                public boolean delete (String creditCard){
+                public boolean delete (String username){
                     try {
                         Session session = HibernateUtil.getSession();
                         Transaction transaction = session.beginTransaction();
-                        session.remove(creditCard);
+                        session.remove(username);
                         transaction.commit();
                         return true;
                     } catch (HibernateException | IOException e) {

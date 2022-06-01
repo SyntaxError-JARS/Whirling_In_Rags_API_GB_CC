@@ -47,8 +47,8 @@ public class CreditCardServices {
             return updatedCreditCard;
         }
 
-        public boolean delete(String creditCard){
-            return creditCardDao.delete(creditCard);
+        public boolean delete(String username){
+            return creditCardDao.delete(username);
         }
 
         public boolean validateCreditCard(CreditCardData newCreditCardData){
