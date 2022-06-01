@@ -9,10 +9,7 @@ import com.revature.restaurant_application.services.CreditCardServices;
 import com.revature.restaurant_application.services.CustomerServices;
 import com.revature.restaurant_application.services.MenuServices;
 import com.revature.restaurant_application.services.OrderServices;
-import com.revature.restaurant_application.web.servlets.CreditCardServlet;
-import com.revature.restaurant_application.web.servlets.CustomerServlet;
-import com.revature.restaurant_application.web.servlets.MenuServlet;
-import com.revature.restaurant_application.web.servlets.OrderServlet;
+import com.revature.restaurant_application.web.servlets.*;
 
 import javax.servlet.ServletContext;
 import javax.servlet.ServletContextEvent;
@@ -41,6 +38,7 @@ public class ContextLoaderListener implements ServletContextListener {
         OrderServlet orderServlet = new OrderServlet(orderServices, mapper);
         CreditCardServlet creditCardServlet = new CreditCardServlet(creditCardServices,mapper);
         MenuServlet menuServlet = new MenuServlet(menuServices, mapper);
+        AuthServlet authServlet = new AuthServlet(customerServices, mapper);
 
 
         ServletContext context = sce.getServletContext();
@@ -48,6 +46,7 @@ public class ContextLoaderListener implements ServletContextListener {
         context.addServlet("OrderServlet", orderServlet).addMapping("/order/*");
         context.addServlet("CreditCardServlet", creditCardServlet).addMapping("/Credit/*");
         context.addServlet("MenuServlet", menuServlet).addMapping("/menu/*");
+        context.addServlet("AuthServlet", authServlet).addMapping("/auth/*");
 ;
 
 

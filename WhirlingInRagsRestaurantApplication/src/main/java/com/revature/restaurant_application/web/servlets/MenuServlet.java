@@ -40,7 +40,7 @@ public class MenuServlet extends HttpServlet  {
         resp.addHeader("Access-Control-Allow-Methods", "GET, PUT, POST, DELETE");
         resp.addHeader("Access-Control-Allow-Headers", "Content-Type, Authorization");
         if(req.getParameter("menuItem") != null){
-            MenuData menuItem = menuServices.readByID("menuItem");
+            MenuData menuItem = menuServices.readByID(req.getParameter("menuItem"));
             String payload = mapper.writeValueAsString(menuItem);
             resp.getWriter().write(payload);
             return;
