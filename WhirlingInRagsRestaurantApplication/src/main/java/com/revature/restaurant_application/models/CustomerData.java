@@ -10,8 +10,6 @@ import javax.persistence.*;
 public class CustomerData {
 
    @Id
-
-
     private String username;
     private String fname;
     private String lname;
