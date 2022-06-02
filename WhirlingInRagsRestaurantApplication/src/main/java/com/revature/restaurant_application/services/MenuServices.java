@@ -26,7 +26,7 @@ public class MenuServices {
         if(persistedMenuItem == null) {
             throw new ResourcePersistenceException("Menu item was not persisted to the database");
         }
-        return new MenuData();
+        return newMenuData;
         }
 
         public ArrayList<MenuData> readAll() throws IOException {
@@ -46,8 +46,8 @@ public class MenuServices {
             return updatedMenuItem;
             }
 
-            public boolean delete(String menuItem){
-            return menuDao.delete(menuItem);
+            public boolean delete(String menuitem){
+            return menuDao.delete(menuitem);
             }
 
             public boolean validateMenuItem (MenuData newMenuData){
@@ -55,7 +55,6 @@ public class MenuServices {
             if(newMenuData.getMenuItem() == null || newMenuData.getMenuItem().trim().equals((""))) return false;
             if(newMenuData.getCost() == 0 ) return false;
             if(newMenuData.getProtein() == null || newMenuData.getProtein().trim().equals((""))) return false;
-            if(newMenuData.getIsSubstitutable() == false ) return false;
             return true;
             }
     }

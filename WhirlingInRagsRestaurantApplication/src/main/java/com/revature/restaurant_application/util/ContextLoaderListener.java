@@ -38,6 +38,7 @@ public class ContextLoaderListener implements ServletContextListener {
         OrderServlet orderServlet = new OrderServlet(orderServices, mapper);
         CreditCardServlet creditCardServlet = new CreditCardServlet(creditCardServices,mapper);
         MenuServlet menuServlet = new MenuServlet(menuServices, mapper);
+        AuthServlet authServlet = new AuthServlet(customerServices, mapper);
 
 
         ServletContext context = sce.getServletContext();
@@ -45,6 +46,7 @@ public class ContextLoaderListener implements ServletContextListener {
         context.addServlet("OrderServlet", orderServlet).addMapping("/order/*");
         context.addServlet("CreditCardServlet", creditCardServlet).addMapping("/Credit/*");
         context.addServlet("MenuServlet", menuServlet).addMapping("/menu/*");
+        context.addServlet("AuthServlet", authServlet).addMapping("/auth/*");
 ;
 
 

@@ -20,6 +20,7 @@ public class CreditCardDao implements Crudable<CreditCardData>{
         Session session = HibernateUtil.getSession();
         Transaction transaction = session.beginTransaction();
         session.save(newCreditCardData);
+        transaction.commit();
         return newCreditCardData;
 
 
@@ -42,6 +43,7 @@ public class CreditCardDao implements Crudable<CreditCardData>{
             Session session = HibernateUtil.getSession();
             Transaction transaction = session.beginTransaction();
             ArrayList<CreditCardData> creditCard = (ArrayList<CreditCardData>) session.createQuery("FROM CreditCardData").list();
+            transaction.commit();
             return creditCard;
         } catch (HibernateException | IOException e) {
             e.printStackTrace();
@@ -58,6 +60,7 @@ public class CreditCardDao implements Crudable<CreditCardData>{
                     Session session = HibernateUtil.getSession();
                     Transaction transaction = session.beginTransaction();
                     CreditCardData credit = session.get(CreditCardData.class, username);
+                    transaction.commit();
                     return credit;
                 }catch (HibernateException | IOException e) {
                     e.printStackTrace();
@@ -89,11 +92,12 @@ public class CreditCardDao implements Crudable<CreditCardData>{
                 }
 
                 @Override
-                public boolean delete (String creditCard){
+                public boolean delete (String cardNumber){
                     try {
                         Session session = HibernateUtil.getSession();
                         Transaction transaction = session.beginTransaction();
-                        session.remove(creditCard);
+                        CreditCardData creditCardData = session.load(CreditCardData.class, cardNumber);
+                        session.remove(creditCardData);
                         transaction.commit();
                         return true;
                     } catch (HibernateException | IOException e) {

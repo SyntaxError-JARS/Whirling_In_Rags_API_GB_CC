@@ -19,17 +19,16 @@ public class MenuData {
         private boolean isSubstitutable;
 
 
-        public MenuData() {
+        public MenuData(String menuItem, int cost, String protein, boolean isSubstitutable) {
+            super();
+            this.menuItem = menuItem;
+            this.cost = cost;
+            this.protein = protein;
+            this.isSubstitutable = isSubstitutable;
         }
 
-        @Override
-        public String toString() {
-            return "MenuData{" +
-                    "menuItem='" + menuItem + '\'' +
-                    ", cost=" + cost +
-                    ", protein=" + protein +
-                    ", isSubstitutable=" + isSubstitutable +
-                    '}';
+        public MenuData(){
+
         }
 
 
@@ -76,5 +75,16 @@ public class MenuData {
         public void setIsSubstitutable(boolean isSubstitutable) {
             this.isSubstitutable = isSubstitutable;
         }
+
+    @Override
+    public String toString() {
+        return "MenuData{" +
+                "menuItem='" + menuItem + '\'' +
+                ", cost=" + cost +
+                ", protein=" + protein +
+                ", isSubstitutable=" + isSubstitutable +
+                '}';
+    }
         }
+
 

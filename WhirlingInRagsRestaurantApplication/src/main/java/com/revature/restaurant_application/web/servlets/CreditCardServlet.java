@@ -93,23 +93,20 @@ public class CreditCardServlet extends HttpServlet  {
         resp.addHeader("Access-Control-Allow-Headers", "Content-Type, Authorization");
 //TODO: implement checkAuth
         //if(!checkAuth(req, resp)) return;
-        if(req.getParameter("creditCard") == null){
+
+        if(req.getParameter("cardNumber") == null){
 
             resp.getWriter().write("Sample output");
             resp.setStatus(401);
             return;
         }
-        String menuItem = req.getParameter("creditCard");
-
+    String creditcardnumber = req.getParameter("cardNumber");
         try {
-            creditCardServices.delete("username");
+            creditCardServices.delete(creditcardnumber);
             resp.getWriter().write("Delete credit card from the database");
         } catch (ResourcePersistenceException e){
             resp.getWriter().write(e.getMessage());
             resp.setStatus(404);
-        } catch (Exception e){
-            resp.getWriter().write(e.getMessage());
-            resp.setStatus(500);
         }
     }
 

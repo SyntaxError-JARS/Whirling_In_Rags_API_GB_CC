@@ -34,6 +34,7 @@ public class CustomerDao implements Crudable<CustomerData>{
             Session session = HibernateUtil.getSession();
             Transaction transaction = session.beginTransaction();
             ArrayList<CustomerData> customers = (ArrayList<CustomerData>) session.createQuery("FROM Customer").list();
+            transaction.commit();
             return customers;
         }catch (HibernateException | IOException e){
             e.printStackTrace();
@@ -92,12 +93,13 @@ public class CustomerDao implements Crudable<CustomerData>{
         }
     }
 
+
     public CustomerData authenticateCustomer(String username, String password){
 
         try {
             Session session = HibernateUtil.getSession();
             Transaction transaction = session.beginTransaction();
-            Query query = session.createQuery("from Customer where username= :username and password= :password");
+            Query query = session.createQuery("from CustomerData where username= :username and password= :password");
             query.setParameter("username", username);
             query.setParameter("password", password);
             CustomerData customerData = (CustomerData) query.uniqueResult();

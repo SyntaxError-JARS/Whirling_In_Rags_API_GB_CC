@@ -101,9 +101,6 @@ public class CustomerServlet extends HttpServlet {
         }catch (InvalidRequestException | ResourcePersistenceException e) {
             resp.setStatus(404);
             resp.getWriter().write(e.getMessage());
-        }catch (Exception e) {
-            resp.setStatus(409);
-            resp.getWriter().write(e.getMessage());
         }
     }
 
@@ -123,9 +120,6 @@ public class CustomerServlet extends HttpServlet {
             return;
         }catch (InvalidRequestException | ResourcePersistenceException e) {
             resp.setStatus(404);
-            resp.getWriter().write(e.getMessage());
-        }catch (Exception e) {
-            resp.setStatus(409);
             resp.getWriter().write(e.getMessage());
         }
     }
