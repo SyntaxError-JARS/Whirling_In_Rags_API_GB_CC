@@ -82,6 +82,7 @@ public class CustomerDao implements Crudable<CustomerData>{
         try{
             Session session = HibernateUtil.getSession();
             Transaction transaction = session.beginTransaction();
+            CustomerData customerData = session.load(CustomerData.class, username);
             session.remove(username);
             transaction.commit();
             return true;

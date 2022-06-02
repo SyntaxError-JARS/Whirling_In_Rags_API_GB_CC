@@ -80,6 +80,7 @@ public class OrderDao implements Crudable<OrderData>{
         try{
             Session session = HibernateUtil.getSession();
             Transaction transaction = session.beginTransaction();
+            OrderData orderData = session.load(OrderData.class, id);
             session.save(id);
             transaction.commit();
             return true;
