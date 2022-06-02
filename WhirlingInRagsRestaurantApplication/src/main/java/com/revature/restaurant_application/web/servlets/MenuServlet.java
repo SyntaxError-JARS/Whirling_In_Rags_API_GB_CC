@@ -99,10 +99,10 @@ public class MenuServlet extends HttpServlet  {
             resp.setStatus(401);
             return;
         }
-        String menuItem = req.getParameter("menuItem");
+        String menuitem = req.getParameter("menuItem");
 
         try {
-            menuServices.delete(menuItem);
+            menuServices.delete(menuitem);
             resp.getWriter().write("Delete menu item from the database");
         } catch (ResourcePersistenceException e){
             resp.getWriter().write(e.getMessage());

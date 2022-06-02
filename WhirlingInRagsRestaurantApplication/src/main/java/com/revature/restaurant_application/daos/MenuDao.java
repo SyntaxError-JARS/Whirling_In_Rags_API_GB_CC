@@ -1,4 +1,5 @@
 package com.revature.restaurant_application.daos;
+import com.revature.restaurant_application.models.CreditCardData;
 import com.revature.restaurant_application.util.HibernateUtil;
 
 import com.revature.restaurant_application.models.MenuData;
@@ -89,11 +90,12 @@ public class MenuDao implements Crudable<MenuData> {
             }
 
             @Override
-            public boolean delete (String menuItem){
+            public boolean delete (String menuitem){
                 try {
                     Session session = HibernateUtil.getSession();
                     Transaction transaction = session.beginTransaction();
-                    session.remove(menuItem);
+                    MenuData menuData = session.load(MenuData.class, menuitem);
+                    session.remove(menuData);
                     transaction.commit();
                     return true;
                 } catch (HibernateException | IOException e) {

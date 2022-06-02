@@ -46,8 +46,8 @@ public class MenuServices {
             return updatedMenuItem;
             }
 
-            public boolean delete(String menuItem){
-            return menuDao.delete(menuItem);
+            public boolean delete(String menuitem){
+            return menuDao.delete(menuitem);
             }
 
             public boolean validateMenuItem (MenuData newMenuData){
