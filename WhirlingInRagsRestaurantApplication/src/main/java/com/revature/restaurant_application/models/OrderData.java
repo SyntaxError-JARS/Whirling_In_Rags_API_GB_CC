@@ -11,7 +11,6 @@ import javax.persistence.*;
     public class OrderData {
 
         @Id
-
         private int id;
         @Column(name = "menu_item")
         private String menuItem;
