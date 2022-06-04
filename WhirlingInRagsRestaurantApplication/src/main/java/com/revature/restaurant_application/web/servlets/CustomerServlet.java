@@ -109,15 +109,21 @@ public class CustomerServlet extends HttpServlet {
         resp.addHeader("Access-Control-Allow-Origin", "*");
         resp.addHeader("Access-Control-Allow-Methods", "GET, PUT, POST, DELETE");
         resp.addHeader("Access-Control-Allow-Headers", "Content-Type, Authorization");
+        if(req.getParameter("username") == null){
+
+            resp.getWriter().write("Sample output");
+            resp.setStatus(401);
+            return;
+        }
+
+        String userName = req.getParameter("username");
 
         try {
-            CustomerData customerData = mapper.readValue(req.getInputStream(), CustomerData.class);
-            boolean deletedCustomerData = customerServices.delete(req.getParameter("username"));
-
-            String payload = mapper.writeValueAsString(deletedCustomerData);
-            resp.getWriter().write(payload);
+            //CustomerData customerData = mapper.readValue(req.getInputStream(), CustomerData.class);
+            customerServices.delete(userName);
+            //String payload = mapper.writeValueAsString(deletedCustomerData);
+            resp.getWriter().write("User Account deleted from the database");
             resp.setStatus(200);
-            return;
         }catch (InvalidRequestException | ResourcePersistenceException e) {
             resp.setStatus(404);
             resp.getWriter().write(e.getMessage());
