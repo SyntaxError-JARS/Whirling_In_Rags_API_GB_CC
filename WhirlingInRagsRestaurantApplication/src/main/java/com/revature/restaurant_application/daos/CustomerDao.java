@@ -94,6 +94,21 @@ public class CustomerDao implements Crudable<CustomerData>{
         }
     }
 
+    public boolean update2(String balance){
+        try{
+            Session session = HibernateUtil.getSession();
+            Transaction transaction = session.beginTransaction();
+            CustomerData customerData = session.load(CustomerData.class, balance);
+            session.remove(customerData);
+            transaction.commit();
+            return true;
+        }catch (HibernateException | IOException e){
+            e.printStackTrace();
+            return false;
+        }finally {
+            HibernateUtil.closeSession();
+        }
+    }
 
     public CustomerData authenticateCustomer(String username, String password){
 

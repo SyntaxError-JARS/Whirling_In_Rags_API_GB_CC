@@ -24,6 +24,7 @@ public class CreditCardData {
     private  int zipCode;
     @Column(name = "limit")
     private int creditLimit;
+
     @Column(name = " customer_username")
     private String username;
 

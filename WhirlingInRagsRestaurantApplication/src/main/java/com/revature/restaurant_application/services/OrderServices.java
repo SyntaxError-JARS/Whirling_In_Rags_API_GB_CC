@@ -39,8 +39,8 @@ public class OrderServices {
         return orders;
     }
 
-    public OrderData readByID(String username){
-        OrderData order = orderDao.findByID(username);
+    public OrderData readByID(String orderDate){
+        OrderData order = orderDao.findByID(orderDate);
         return order;
     }
 

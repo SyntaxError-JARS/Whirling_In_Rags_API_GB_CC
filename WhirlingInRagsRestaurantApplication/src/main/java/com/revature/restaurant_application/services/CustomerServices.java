@@ -50,6 +50,13 @@ public class CustomerServices {
 
         return updatedCustomer;
     }
+    public boolean update2(String balance){
+        if(!customerDao.update2((balance))){
+            return true;
+        }
+
+        return true;
+    }
 
     public boolean delete(String username){
         return customerDao.delete(username);

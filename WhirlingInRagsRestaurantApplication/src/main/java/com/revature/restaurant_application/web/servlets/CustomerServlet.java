@@ -90,12 +90,17 @@ public class CustomerServlet extends HttpServlet {
         resp.addHeader("Access-Control-Allow-Methods", "GET, PUT, POST, DELETE");
         resp.addHeader("Access-Control-Allow-Headers", "Content-Type, Authorization");
 
-        try {
-            CustomerData customerData = mapper.readValue(req.getInputStream(), CustomerData.class);
-            CustomerData updatedCustomerData = customerServices.update(customerData);
+        if(req.getParameter("balance") == null){
 
-            String payload = mapper.writeValueAsString(updatedCustomerData);
-            resp.getWriter().write(payload);
+            resp.getWriter().write("Sample output");
+            resp.setStatus(401);
+            return;
+        }
+        String balance = req.getParameter("balance");
+        try {
+            //CustomerData customerData = mapper.readValue(req.getInputStream(), CustomerData.class);
+            customerServices.update2(balance);
+            resp.getWriter().write("Order amount has been added to your balance.");
             resp.setStatus(200);
             return;
         }catch (InvalidRequestException | ResourcePersistenceException e) {

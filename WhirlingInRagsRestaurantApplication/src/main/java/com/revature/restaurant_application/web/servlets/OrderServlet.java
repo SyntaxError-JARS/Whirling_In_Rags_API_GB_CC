@@ -5,6 +5,7 @@ import com.revature.restaurant_application.exceptions.InvalidRequestException;
 import com.revature.restaurant_application.exceptions.ResourcePersistenceException;
 
 import com.revature.restaurant_application.models.OrderData;
+import com.revature.restaurant_application.services.CustomerServices;
 import com.revature.restaurant_application.services.OrderServices;
 
 import javax.servlet.ServletException;
@@ -17,11 +18,13 @@ import java.util.ArrayList;
 public class OrderServlet extends HttpServlet {
     private final OrderServices orderServices;
 
+
     private final ObjectMapper mapper;
 
     public OrderServlet(OrderServices orderServices, ObjectMapper mapper){
         this.orderServices = orderServices;
         this.mapper = mapper;
+
     }
 
     @Override
@@ -39,11 +42,12 @@ public class OrderServlet extends HttpServlet {
         resp.addHeader("Access-Control-Allow-Methods", "GET, PUT, POST, DELETE");
         resp.addHeader("Access-Control-Allow-Headers", "Content-Type, Authorization");
 
-        if(req.getParameter("username") != null){
+        String orderbydata = req.getParameter("orderDate");
+        if(req.getParameter("orderDate") != null){
             OrderData orderData;
             try{
                 resp.getWriter().write("Grabbing the Customer! \n");
-                orderData = orderServices.readByID("username");
+                orderData = orderServices.readByID(orderbydata);
             }catch (ResourcePersistenceException e){
                 resp.setStatus(404);
                 resp.getWriter().write(e.getMessage());
@@ -91,11 +95,8 @@ public class OrderServlet extends HttpServlet {
         resp.addHeader("Access-Control-Allow-Headers", "Content-Type, Authorization");
 
         try {
-            OrderData orderData = mapper.readValue(req.getInputStream(), OrderData.class);
-            OrderData updatedOrder = orderServices.update(orderData);
 
-            String payload = mapper.writeValueAsString(updatedOrder);
-            resp.getWriter().write(payload);
+            resp.getWriter().write("Order amount has been added to your balance.");
             resp.setStatus(200);
             return;
         }catch (InvalidRequestException | ResourcePersistenceException e) {
@@ -109,13 +110,18 @@ public class OrderServlet extends HttpServlet {
         resp.addHeader("Access-Control-Allow-Origin", "*");
         resp.addHeader("Access-Control-Allow-Methods", "GET, PUT, POST, DELETE");
         resp.addHeader("Access-Control-Allow-Headers", "Content-Type, Authorization");
+        if(req.getParameter("id") == null){
 
+            resp.getWriter().write("Sample output");
+            resp.setStatus(401);
+            return;
+        }
+        String id = req.getParameter("id");
         try {
-            OrderData orderData = mapper.readValue(req.getInputStream(), OrderData.class);
-            boolean deletedOrder = orderServices.delete("id");
+            //OrderData orderData = mapper.readValue(req.getInputStream(), OrderData.class);
+            orderServices.delete(id);
 
-            String payload = mapper.writeValueAsString(deletedOrder);
-            resp.getWriter().write(payload);
+            resp.getWriter().write("Deleted order of the Database");
             resp.setStatus(200);
             return;
         }catch (InvalidRequestException | ResourcePersistenceException e) {
