@@ -42,21 +42,13 @@ public class OrderServlet extends HttpServlet {
         resp.addHeader("Access-Control-Allow-Methods", "GET, PUT, POST, DELETE");
         resp.addHeader("Access-Control-Allow-Headers", "Content-Type, Authorization");
 
-        String orderbydata = req.getParameter("orderDate");
-        if(req.getParameter("orderDate") != null){
-            OrderData orderData;
-            try{
-                resp.getWriter().write("Grabbing the Customer! \n");
-                orderData = orderServices.readByID(orderbydata);
-            }catch (ResourcePersistenceException e){
-                resp.setStatus(404);
-                resp.getWriter().write(e.getMessage());
-                return;
-            }
+        //String orderbydata = req.getParameter("orderDate");
+        if(req.getParameter("id") != null) {
 
+            OrderData orderData = orderServices.readByID(req.getParameter("id"));
             String payload = mapper.writeValueAsString(orderData);
             resp.getWriter().write(payload);
-            resp.setStatus(200);
+
             return;
         }
 

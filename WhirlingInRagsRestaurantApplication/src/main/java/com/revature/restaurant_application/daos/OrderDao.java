@@ -44,11 +44,11 @@ public class OrderDao implements Crudable<OrderData>{
     }
 
     @Override
-    public OrderData findByID(String orderDate) {
+    public OrderData findByID(String id) {
         try{
             Session session = HibernateUtil.getSession();
             Transaction transaction = session.beginTransaction();
-            OrderData order = session.get(OrderData.class, orderDate);
+            OrderData order = session.get(OrderData.class, Integer.parseInt(id));
             transaction.commit();
             return order;
         }catch (HibernateException | IOException e){
