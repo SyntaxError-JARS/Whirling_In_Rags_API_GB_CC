@@ -1,7 +1,7 @@
 # Project 1: Whirling In Rags Resturant Application
 
 # Desctiption
-The purpose of this application is to deliver a seamless restaurant experience to the customers who use this application online or though the Cafe/Resuraunt.  This repository is holding all of the files used for the Back End/API.
+Whirling in Rags was developed for a small restaurant that is looking to help streamline the ordering process for customers to help reduce costs. Customers can enjoy an seamless means to order directly with an account of their own at the restaurant in question, where Admins are capable of adding and updating the menu items. This RESTful application leverages a tomcat server to handle incoming requests to thoroughly tested services that must be persisted using Hibernate and Azure SQL services. This project includes a front-end that will be developed using ReactJS to handle user requests.
 
 # User Stories
 
@@ -35,3 +35,7 @@ The purpose of this application is to deliver a seamless restaurant experience t
 -   [ ] Java EE Servlet API (v4.0+)
 -   [ ] Azure SQL
 -   [ ] Git SCM (on GitHub)
+
+## Collaborators
+- Geoffrey Blois
+- Catherine Claunch
