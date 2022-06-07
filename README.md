@@ -37,5 +37,5 @@ Whirling in Rags was developed for a small restaurant that is looking to help st
 -   [ ] Git SCM (on GitHub)
 
 ## Collaborators
-- Geoffrey Blois
-- Catherine Claunch
+- [ ] Geoffrey Blois
+- [ ] Catherine Claunch
